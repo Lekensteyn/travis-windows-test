@@ -16,5 +16,8 @@ script:
   - grep -rne . C:/mydir/ || echo no files found
   - date -R > C:/mydir/two.txt
   - ls -la C:/mydir
+after_script:
+  - find ~ . -name '*.t?z' -ls -exec tar tvf {} \;
+  - find . -name '*.log' -ls -exec cat {} \;
 notifications:
   email: false
