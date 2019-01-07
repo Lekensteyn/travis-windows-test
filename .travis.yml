@@ -1,6 +1,8 @@
 os: windows
 language: shell
 cache:
+  # Fix absolute extraction - https://github.com/travis-ci/casher/pull/38
+  branch: 46c41ee208def16781fe4075283b70e1dbfe70ae
   directories:
     - C:/mydir
 script:
