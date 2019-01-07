@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.12)
+project(FindPerlTest LANGUAGES)
+find_package(Perl REQUIRED)
+message(STATUS "PERL_FOUND: ${PERL_FOUND}")
+message(STATUS "PERL_EXECUTABLE: ${PERL_EXECUTABLE}")
+message(STATUS "PERL_VERSION_STRING: ${PERL_VERSION_STRING}")

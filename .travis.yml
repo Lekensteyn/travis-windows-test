@@ -1,0 +1,14 @@
+os: windows
+language: shell
+script:
+  - choco list --localonly
+  - choco install strawberryperl
+  - |
+    # Apply Process paths before Machine to ensure /bin appears before others.
+    export PATH="$(powershell -Command '("Process", "Machine" | % {
+      [Environment]::GetEnvironmentVariable("PATH", $_) -Split ";" -Replace "\\$", ""
+    } | Select -Unique | % { cygpath $_ }) -Join ":"')"
+    echo "PATH=$PATH"
+  - (mkdir build && cmake -A x64 --trace-expand ..)
+notifications:
+  email: false
