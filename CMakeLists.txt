@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 project(FindPerlTest LANGUAGES)
 find_package(Perl REQUIRED)
 message(STATUS "PERL_FOUND: ${PERL_FOUND}")
