@@ -8,7 +8,9 @@ script:
   - ls -laR ~/.casher
   - cat ~/.casher/fetch.log
   - cat ~/.casher/fetch.err.log
-  - for i in ~/.casher/*.tgz; do tar tvf "$i"; done
+  - cat ~/.casher/paths
+  - for i in ~/.casher/*.t?z; do tar tvf "$i"; done
+  - cat ~/.casher/bin/casher
   - ls -la / C:/
   - ls -la mydir
   - grep -rne . mydir/ || echo no files found
