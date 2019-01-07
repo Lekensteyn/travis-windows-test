@@ -2,12 +2,12 @@ os: windows
 language: shell
 cache:
   directories:
-    - /c/mydir
+    - mydir
 script:
   - ls -la / C:/
-  - ls -la C:/mydir
-  - grep -rne . C:/mydir/ || echo no files found
-  - date -R > C:/mydir/out.txt
-  - ls -la C:/mydir
+  - ls -la mydir
+  - grep -rne . mydir/ || echo no files found
+  - date -R > mydir/out.txt
+  - ls -la mydir
 notifications:
   email: false
