@@ -4,6 +4,7 @@ cache:
   directories:
     - C:/mydir
 script:
+  - cat ~/.build.sh
   - env
   - ls -laR ~/.casher
   - cat fetch.log
