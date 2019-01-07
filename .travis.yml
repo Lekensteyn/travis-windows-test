@@ -4,5 +4,7 @@ cache:
   directories:
     - C:/mydir
 script:
-  - grep -rne . C:/mydir/
+  - ls -la C:/mydir
+  - grep -rne . C:/mydir/ || echo no files found
   - date -R > C:/mydir/out.txt
+  - ls -la C:/mydir
