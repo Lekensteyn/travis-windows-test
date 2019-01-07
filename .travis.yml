@@ -1,0 +1,8 @@
+os: windows
+language: shell
+cache:
+  directories:
+    - C:/mydir
+script:
+  - grep -rne . C:/mydir/
+  - date -R > C:/mydir/out.txt
