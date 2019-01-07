@@ -2,19 +2,19 @@ os: windows
 language: shell
 cache:
   directories:
-    - mydir
+    - C:/mydir
 script:
   - env
   - ls -laR ~/.casher
-  - cat ~/fetch.log
-  - cat ~/fetch.err.log
+  - cat fetch.log
+  - cat fetch.err.log
   - for i in ~/.casher/*.t?z; do tar tvf "$i"; done
   - cat ~/.casher/bin/casher
   - ls -laR ~
   - ls -la / C:/
-  - ls -la mydir
-  - grep -rne . mydir/ || echo no files found
-  - date -R > mydir/out.txt
-  - ls -la mydir
+  - ls -la C:/mydir
+  - grep -rne . C:/mydir/ || echo no files found
+  - date -R > C:/mydir/two.txt
+  - ls -la C:/mydir
 notifications:
   email: false
