@@ -1,6 +1,16 @@
 cmake_minimum_required(VERSION 3.12)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 project(FindPerlTest LANGUAGES)
+
+find_program(PERL_1 perl PATHS "C:/Strawberry/perl/bin")
+message(STATUS "PERL_1: ${PERL_1}")
+find_program(PERL_2 perl PATHS "C:\\Strawberry\\perl\\bin")
+message(STATUS "PERL_2: ${PERL_1}")
+find_program(PERL_3 perl PATHS "C:/Strawberry/perl/bin" NO_SYSTEM_ENVIRONMENT_PATH)
+message(STATUS "PERL_3: ${PERL_1}")
+find_program(PERL_4 perl PATHS "C:\\Strawberry\\perl\\bin" NO_SYSTEM_ENVIRONMENT_PATH)
+message(STATUS "PERL_4: ${PERL_1}")
+
 find_package(Perl REQUIRED)
 message(STATUS "PERL_FOUND: ${PERL_FOUND}")
 message(STATUS "PERL_EXECUTABLE: ${PERL_EXECUTABLE}")

@@ -19,7 +19,7 @@ this module looks for Perl
   PERL_VERSION_STRING - version of perl found (since CMake 2.8.8)
 #]=======================================================================]
 
-include(FindCygwin.cmake)
+include(FindCygwin)
 
 if(CYGWIN_INSTALL_PATH)
   set(PERL_POSSIBLE_BIN_PATHS ${CYGWIN_INSTALL_PATH}/bin)

@@ -10,6 +10,7 @@ script:
     } | Select -Unique | % { cygpath $_ }) -Join ":"')"
     echo "PATH=$PATH"
   - ls -la C:/Perl/bin C:/Strawberry/perl/bin || true
-  - (mkdir build && cd build && cmake -A x64 --trace-expand ..)
+  - (mkdir build1 && cd build1 && cmake -A x64 --trace-expand ..)
+  - (mkdir build2 && cd build2 && cmake -A x64 --trace ..)
 notifications:
   email: false
