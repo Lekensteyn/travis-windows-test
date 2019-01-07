@@ -9,6 +9,7 @@ script:
       [Environment]::GetEnvironmentVariable("PATH", $_) -Split ";" -Replace "\\$", ""
     } | Select -Unique | % { cygpath $_ }) -Join ":"')"
     echo "PATH=$PATH"
+  - ls -la C:/Perl/bin C:/Strawberry/perl/bin || true
   - (mkdir build && cd build && cmake -A x64 --trace-expand ..)
 notifications:
   email: false
