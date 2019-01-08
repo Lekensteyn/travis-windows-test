@@ -4,20 +4,26 @@ cache:
   directories:
     - C:/mydir
 script:
+  - ls -la $PWD C:/
+  - ls -laR ~/.casher
+  - |
+    if [ -e mydir ]; then
+      mv mydir/* C:/mydir/
+      md5deep64 -o f -r C:/mydir | sort >> ~/.casher/md5sums_before || echo md5deep failed with $?
+    fi
   - choco list --localonly
   - ls -l C:/ProgramData/chocolatey/bin C:/ProgramData/chocolatey/lib
   - cat ~/build.sh
   - env
-  - ls -laR ~/.casher
   - cat fetch.log
   - cat fetch.err.log
   - for i in ~/.casher/*.t?z; do tar tvf "$i"; done
   - cat ~/.casher/bin/casher
   - ls -laR ~
-  - ls -la / C:/ $PWD
+  - ls -la / C:/
   - ls -la C:/mydir
   - grep -rne . C:/mydir/ || echo no files found
-  - date -R > C:/mydir/two.txt
+  - echo date -R > C:/mydir/two.txt
   - ls -la C:/mydir
 after_script:
   - find ~ . -name '*.t?z' -ls -exec tar tvf {} \;
