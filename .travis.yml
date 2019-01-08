@@ -1,0 +1,21 @@
+os: windows
+language: shell
+script:
+  - python --version || true
+  - choco list --localonly
+  - cinst -y --no-progress python3
+  - |
+    # Apply Process paths before Machine to ensure /bin appears before others.
+    export PATH="$(powershell -Command '("Process", "Machine" | % {
+      [Environment]::GetEnvironmentVariable("PATH", $_) -Split ";" -Replace "\\$", ""
+    } | Select -Unique | % { cygpath $_ }) -Join ":"')"
+    echo "PATH=$PATH"
+  - ls -la C:/ProgramData/chocolatey
+  - ls -la C:/ProgramData/chocolatey/bin
+  - ls -la C:/ProgramData/chocolatey/lib
+  - du -csm C:/ProgramData/chocolatey/{bin,lib,}
+  - python3 --version
+  - python --version
+  - pip --version
+notifications:
+  email: false
