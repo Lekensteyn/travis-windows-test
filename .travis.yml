@@ -29,5 +29,7 @@ script:
 after_script:
   - find ~ . -name '*.t?z' -ls -exec tar tPvf {} \;
   - find . -name '*.log' -ls -exec cat {} \;
+  - grep -rn . ~/.casher/md5sums_before ~/.casher/md5sums_after
+  - diff -u ~/.casher/md5sums_before ~/.casher/md5sums_after
 notifications:
   email: false
