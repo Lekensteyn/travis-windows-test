@@ -1,7 +1,5 @@
 os: windows
 language: shell
-env:
-  - dummy: value; set -x
 cache:
   directories:
     - C:/mydir
@@ -20,7 +18,7 @@ script:
   - env
   - cat fetch.log
   - cat fetch.err.log
-  - for i in ~/.casher/*.t?z; do tar tvf "$i"; done
+  - for i in ~/.casher/*.t?z; do tar tPvf "$i"; done
   - cat ~/.casher/bin/casher
   - ls -laR ~
   - ls -la / C:/
@@ -29,7 +27,7 @@ script:
   - echo date -R > C:/mydir/two.txt
   - ls -la C:/mydir
 after_script:
-  - find ~ . -name '*.t?z' -ls -exec tar tvf {} \;
+  - find ~ . -name '*.t?z' -ls -exec tar tPvf {} \;
   - find . -name '*.log' -ls -exec cat {} \;
 notifications:
   email: false
