@@ -1,9 +1,12 @@
 os: windows
 language: shell
+env:
+  - dummy: value; set -x
 cache:
   directories:
     - C:/mydir
 script:
+  - pwd; set -x
   - ls -la $PWD C:/
   - ls -laR ~/.casher
   - |
